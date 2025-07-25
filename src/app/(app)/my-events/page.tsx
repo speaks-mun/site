@@ -10,7 +10,7 @@ export default function MyEventsPage() {
           My Events
         </h1>
         <p className="text-body-text">
-          Events you've created and registered for
+          Events you&apos;ve created and registered for
         </p>
       </div>
 

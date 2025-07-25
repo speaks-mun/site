@@ -52,7 +52,7 @@ export default function HomePage() {
         {/* Badge */}
         <div className="inline-flex items-center px-3 py-1 rounded-full bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-300 text-sm mb-6">
           <span className="w-2 h-2 bg-pink-500 rounded-full mr-2"></span>
-          South India's Premier MUN Platform
+          South India&apos;s Premier MUN Platform
         </div>
         
         {/* Main Heading */}

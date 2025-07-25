@@ -23,7 +23,7 @@ const MapPlaceholder = ({ events }: { events: Event[] }) => (
         Interactive Map Coming Soon
       </h3>
       <p className="text-body-text mb-4 max-w-md">
-        We're setting up Google Maps integration to show {events.length} MUN events across South India
+                 We&apos;re setting up Google Maps integration to show {events.length} MUN events across South India
       </p>
       <div className="flex justify-center space-x-2">
         <div className="w-2 h-2 bg-primary-cta rounded-full animate-bounce"></div>

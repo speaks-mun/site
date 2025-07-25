@@ -9,12 +9,12 @@ interface TestResult {
   test: string
   status: 'pending' | 'success' | 'error'
   message: string
-  data?: any
+  data?: unknown
 }
 
 export default function DatabaseTestPage() {
   const [results, setResults] = useState<TestResult[]>([])
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<{ id: string; email: string } | null>(null)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function DatabaseTestPage() {
     checkUser()
   }, [])
 
-  const updateResult = (test: string, status: 'success' | 'error', message: string, data?: any) => {
+  const updateResult = (test: string, status: 'success' | 'error', message: string, data?: unknown) => {
     setResults(prev => {
       const index = prev.findIndex(r => r.test === test)
       const newResult = { test, status, message, data }

@@ -95,7 +95,7 @@ export default function InviteLinkPage() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-body-text">
-              Don't have an invite code?{" "}
+              Don&apos;t have an invite code?{" "}
               <a 
                 href="mailto:admin@speaks.com?subject=Request for Event Creation Access"
                 className="text-primary-cta hover:underline"

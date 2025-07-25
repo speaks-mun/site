@@ -18,10 +18,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { MapPin, Calendar, User, ArrowLeft, ArrowRight, MapIcon } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { ArrowLeft, ArrowRight, MapIcon } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { useApiAction } from '@/hooks/use-api-action'
+import { User as SupabaseUser } from '@supabase/supabase-js'
 
 const eventSchema = z.object({
   name: z.string().min(5, 'Event name must be at least 5 characters').max(100),
@@ -68,7 +69,7 @@ const STEPS = [
 export default function CreateEventPage() {
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(0)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<SupabaseUser | null>(null)
   const [loading, setLoading] = useState(true)
 
   const form = useForm<EventFormData>({

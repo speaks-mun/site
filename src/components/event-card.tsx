@@ -8,6 +8,7 @@ import { MapPin, CalendarDays, Heart, ExternalLink, User, Tag } from 'lucide-rea
 import { supabase } from '@/lib/supabase/client'
 import { useApiAction } from '@/hooks/use-api-action'
 import { toast } from 'sonner'
+import { User as SupabaseUser } from '@supabase/supabase-js'
 
 interface Event {
   id: string
@@ -35,7 +36,7 @@ interface EventCardProps {
 export function EventCard({ event }: EventCardProps) {
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [isRegistered, setIsRegistered] = useState(false)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<SupabaseUser | null>(null)
 
   // Fetch user and check bookmark/registration status
   useEffect(() => {

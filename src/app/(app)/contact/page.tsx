@@ -121,7 +121,7 @@ export default function ContactPage() {
                   How do I register for events?
                 </h4>
                 <p className="text-body-text text-sm">
-                  Simply browse events on the discover page and click "Register" to be redirected to the event's registration page
+                  Simply browse events on the discover page and click &quot;Register&quot; to be redirected to the event&apos;s registration page
                 </p>
               </div>
 
@@ -151,7 +151,7 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent>
               <p className="text-body-text">
-                Speaks is South India's premier platform for Model United Nations events. 
+                Speaks is South India&apos;s premier platform for Model United Nations events. 
                 We connect students, colleges, and organizers to build a thriving MUN community 
                 focused on diplomacy, debate, and global awareness.
               </p>

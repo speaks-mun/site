@@ -55,7 +55,7 @@ const menuItems = [
 ]
 
 export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
-  const router = useRouter()
+
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
 
