@@ -10,7 +10,7 @@ export default function ContactPage() {
           Contact Us
         </h1>
         <p className="text-body-text text-lg">
-          Get in touch with the Speaks team. We're here to help!
+          Get in touch with the Speaks team. We&apos;re here to help!
         </p>
       </div>
 

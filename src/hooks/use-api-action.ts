@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-type ApiActionFunction<T = unknown, R = unknown> = (params: T) => Promise<R>
+type ApiActionFunction<T = any, R = any> = (params: T) => Promise<R>
 
 interface UseApiActionOptions {
   successMessage?: string
   errorMessage?: string
-  onSuccess?: (result: unknown) => void
+  onSuccess?: (result: any) => void
   onError?: (error: Error) => void
 }
 
-export function useApiAction<T = unknown, R = unknown>(
+export function useApiAction<T = any, R = any>(
   apiFunction: ApiActionFunction<T, R>,
   options: UseApiActionOptions = {}
 ) {
