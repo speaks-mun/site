@@ -9,12 +9,12 @@ interface TestResult {
   test: string
   status: 'pending' | 'success' | 'error'
   message: string
-  data?: any
+  data?: unknown
 }
 
 export default function DatabaseTestPage() {
   const [results, setResults] = useState<TestResult[]>([])
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<{ id: string; email?: string } | null>(null)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function DatabaseTestPage() {
     checkUser()
   }, [])
 
-  const updateResult = (test: string, status: 'success' | 'error', message: string, data?: any) => {
+  const updateResult = (test: string, status: 'success' | 'error', message: string, data?: unknown) => {
     setResults(prev => {
       const index = prev.findIndex(r => r.test === test)
       const newResult = { test, status, message, data }
@@ -125,7 +125,7 @@ export default function DatabaseTestPage() {
     setLoading(true)
     try {
       // Simple connection test
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('events')
         .select('count')
         .limit(1)
@@ -202,11 +202,11 @@ export default function DatabaseTestPage() {
                   </span>
                 </div>
                 <p className="text-body-text text-sm mb-2">{result.message}</p>
-                {result.data && (
+                {result.data !== undefined && result.data !== null && (
                   <details className="text-xs">
                     <summary className="cursor-pointer text-primary-cta">Show Data</summary>
                     <pre className="mt-2 p-2 bg-gray-100 dark:bg-gray-800 rounded overflow-auto">
-                      {JSON.stringify(result.data, null, 2)}
+                      {typeof result.data === 'object' ? JSON.stringify(result.data, null, 2) : String(result.data)}
                     </pre>
                   </details>
                 )}

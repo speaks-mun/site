@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { 
   X, 
@@ -54,10 +54,9 @@ const menuItems = [
   },
 ]
 
-export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
-
-  const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
+  export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
+    const pathname = usePathname()
+    const { theme, setTheme } = useTheme()
 
   // Close menu on route change
   useEffect(() => {

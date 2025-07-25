@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { X, Filter, Search } from 'lucide-react'
+import { X, Search } from 'lucide-react'
 import { useDebounce } from '@/hooks/use-debounce'
 
 const MUN_TYPES = ['Conference', 'Workshop', 'Simulation']
@@ -26,7 +26,7 @@ interface FilterState {
   sortBy: string
 }
 
-export function FilterBar() {
+function FilterBarContent() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -228,5 +228,13 @@ export function FilterBar() {
         </div>
       )}
     </div>
+  )
+}
+
+export function FilterBar() {
+  return (
+    <Suspense fallback={<div className="h-12 bg-muted rounded animate-pulse" />}>
+      <FilterBarContent />
+    </Suspense>
   )
 } 

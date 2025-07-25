@@ -14,7 +14,7 @@ export default function SimpleTestPage() {
     
     try {
       // Test 1: Simple query
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('events')
         .select('count')
         .limit(1)
@@ -37,7 +37,7 @@ export default function SimpleTestPage() {
     
     try {
       // Test without triggers - anonymous signup
-      const { data, error } = await supabase.auth.signUp({
+      const { data: authData, error } = await supabase.auth.signUp({
         email: `test_${Date.now()}@example.com`,
         password: 'testpass123',
       })
@@ -45,7 +45,7 @@ export default function SimpleTestPage() {
       if (error) {
         setResult(`❌ Auth Error: ${error.message}`)
       } else {
-        setResult(`✅ Auth works! User ID: ${data.user?.id}`)
+        setResult(`✅ Auth works! User ID: ${authData.user?.id}`)
       }
     } catch (err) {
       setResult(`❌ Auth Failed: ${err}`)

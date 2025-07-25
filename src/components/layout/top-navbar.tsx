@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-
 import { Badge } from '@/components/ui/badge'
 import { FilterBar } from '@/components/discovery/filter-bar'
 import Link from 'next/link'

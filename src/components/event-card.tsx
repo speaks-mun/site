@@ -99,8 +99,8 @@ export function EventCard({ event }: EventCardProps) {
       }
     },
     {
-      onSuccess: (result) => {
-        if (result?.action === 'added') {
+      onSuccess: () => {
+        if (!isBookmarked) {
           toast.success('Event bookmarked!')
         } else {
           toast.success('Bookmark removed')

@@ -19,6 +19,7 @@ import {
 import { supabase } from '@/lib/supabase/client'
 import { useApiAction } from '@/hooks/use-api-action'
 import { User } from '@supabase/supabase-js'
+import Image from 'next/image'
 
 const onboardingSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -139,9 +140,11 @@ export default function OnboardingPage() {
             {/* Profile Picture Display */}
             {user?.user_metadata?.avatar_url && (
               <div className="flex justify-center mb-6">
-                <img
+                <Image
                   src={user.user_metadata.avatar_url}
                   alt="Profile"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full border-4 border-primary-cta"
                 />
               </div>
