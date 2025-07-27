@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { FilterBar } from '@/components/discovery/filter-bar'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { UserAvatar } from '@/components/user-avatar'
 import { 
   Menu, 
   Bell, 
@@ -61,7 +62,10 @@ export function TopNavbar({ onMenuClick, showFilters = false }: TopNavbarProps) 
         )}
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-2">
+          {/* User Avatar with Login Status */}
+          <UserAvatar variant="navbar" showDropdown={true} />
+          
           {/* Theme Toggle - Desktop */}
           <div className="hidden md:block">
             <ThemeToggle variant="app" />
