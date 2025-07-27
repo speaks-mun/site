@@ -90,11 +90,14 @@ export default function LoginPage() {
         <div className="space-y-4">
           {/* Google OAuth Button */}
           <Button
-            onClick={() => handleGoogleLogin({})}
+            onClick={() => {
+              console.log('Google login clicked'); // Debug log
+              handleGoogleLogin({});
+            }}
             disabled={isLoading}
-            className="w-full bg-primary-cta text-white hover:bg-primary-cta/90 py-6 text-lg font-semibold flex items-center justify-center space-x-3"
+            className="w-full bg-[#22D3EE] text-white hover:bg-[#22D3EE]/90 py-6 text-lg font-semibold flex items-center justify-center gap-3 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            <FaGoogle className="w-5 h-5" />
+            <FaGoogle className="w-5 h-5 flex-shrink-0" />
             <span>{isLoading ? "Signing in..." : "Sign in with Google"}</span>
           </Button>
 
