@@ -21,8 +21,8 @@ export default function HomePage() {
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary-cta/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       
-      {/* Professional Theme Toggle */}
-      <ThemeToggle />
+      {/* Minimalist Theme Toggle */}
+      <ThemeToggle variant="landing" />
       
       {/* Header Navigation */}
       <header className="relative z-10 flex items-center justify-between p-6 md:px-12 lg:px-16">

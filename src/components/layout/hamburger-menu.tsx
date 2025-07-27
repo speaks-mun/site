@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { logout } from '@/lib/auth-actions'
 import { useApiAction } from '@/hooks/use-api-action'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface HamburgerMenuProps {
   isOpen: boolean
@@ -155,23 +156,7 @@ const menuItems = [
 
           {/* Theme Toggle */}
           <div className="p-6 border-t border-border-divider">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                {theme === 'light' ? (
-                  <Sun className="w-5 h-5 text-body-text" />
-                ) : (
-                  <Moon className="w-5 h-5 text-body-text" />
-                )}
-                <span className="text-body-text font-medium">
-                  {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
-                </span>
-              </div>
-              <Switch
-                checked={theme === 'dark'}
-                onCheckedChange={toggleTheme}
-                className="data-[state=checked]:bg-primary-cta"
-              />
-            </div>
+            <ThemeToggle variant="menu" />
           </div>
 
           <Separator />

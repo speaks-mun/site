@@ -4,94 +4,107 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { 
-  PlusCircle, 
-  Heart, 
-  Compass, 
-  User, 
-  Settings 
+  Home, 
+  Search, 
+  Plus, 
+  Clock, 
+  User 
 } from 'lucide-react'
 
 const navigationItems = [
   {
-    icon: Heart,
-    label: 'Bookmarks',
-    href: '/bookmarks',
-  },
-  {
-    icon: Compass,
-    label: 'Discover',
+    icon: Home,
+    label: 'Home',
     href: '/discover',
   },
   {
-    icon: PlusCircle,
-    label: 'Create',
-    href: '/create-event/invite',
-    isLarge: true,
+    icon: Search,
+    label: 'Search',
+    href: '/search',
+  },
+  {
+    icon: Clock,
+    label: 'History',
+    href: '/my-events',
   },
   {
     icon: User,
     label: 'Profile',
     href: '/profile',
   },
-  {
-    icon: Settings,
-    label: 'Settings',
-    href: '/settings',
-  },
 ]
+
+const centerAction = {
+  icon: Plus,
+  label: 'Create',
+  href: '/create-event/invite',
+}
 
 export function BottomNavbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 w-full bg-card-background/95 backdrop-blur-md border-t border-border-divider">
-      <div className="flex items-center justify-around p-2 max-w-md mx-auto">
-        {navigationItems.map((item) => {
-          const isActive = pathname === item.href || 
-            (item.href === '/discover' && pathname === '/') ||
-            (item.href === '/discover' && pathname.startsWith('/discover'))
-          const Icon = item.icon
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 pointer-events-none">
+      <div className="max-w-md mx-auto relative pointer-events-auto">
+        {/* Main Navigation Container */}
+        <nav className="bg-background/95 backdrop-blur-xl border border-border/50 rounded-3xl shadow-2xl p-4">
+          <div className="flex items-center justify-between">
+            {navigationItems.map((item, index) => {
+              const isActive = pathname === item.href || 
+                (item.href === '/discover' && pathname === '/') ||
+                (item.href === '/discover' && pathname.startsWith('/discover'))
+              const Icon = item.icon
 
-          if (item.isLarge) {
-            // Central large create button
-            return (
-              <Link key={item.href} href={item.href}>
-                <Button
-                  size="lg"
-                  className={`
-                    h-14 w-14 rounded-full bg-primary-cta text-white hover:bg-primary-cta/90 
-                    shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200
-                    ${isActive ? 'ring-2 ring-primary-cta ring-offset-2 ring-offset-background' : ''}
-                  `}
-                >
-                  <Icon className="w-6 h-6" />
-                </Button>
-              </Link>
-            )
-          }
+              return (
+                <div key={item.href} className="flex-1 flex justify-center">
+                  {/* Add spacer for center button */}
+                  {index === 2 && <div className="w-14"></div>}
+                  
+                  <Link href={item.href} className="flex flex-col items-center gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={`
+                        h-10 w-10 rounded-xl transition-all duration-200
+                        ${isActive 
+                          ? 'bg-foreground text-background hover:bg-foreground/90' 
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                        }
+                      `}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </Button>
+                    
+                    {/* Labels below icons */}
+                    <span className={`text-xs font-medium transition-colors duration-200 ${
+                      isActive ? 'text-foreground' : 'text-muted-foreground'
+                    }`}>
+                      {item.label}
+                    </span>
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        </nav>
 
-          return (
-            <Link key={item.href} href={item.href}>
-              <Button
-                variant="ghost"
-                size="sm"
-                className={`
-                  flex flex-col items-center justify-center h-16 w-16 p-2 space-y-1
-                  ${isActive 
-                    ? 'text-primary-cta bg-primary-cta/10' 
-                    : 'text-body-text hover:text-heading-text hover:bg-muted'
-                  }
-                `}
-              >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-primary-cta' : ''}`} />
-                <span className={`text-xs font-medium ${isActive ? 'text-primary-cta' : ''}`}>
-                  {item.label}
-                </span>
-              </Button>
-            </Link>
-          )
-        })}
+        {/* Floating Center Action Button */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Link href={centerAction.href}>
+            <Button
+              size="icon"
+              className={`
+                h-14 w-14 rounded-full bg-foreground text-background hover:bg-foreground/90
+                shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200
+                border-4 border-background
+                ${pathname === centerAction.href ? 'ring-2 ring-foreground ring-offset-2 ring-offset-background' : ''}
+              `}
+            >
+              <centerAction.icon className="w-6 h-6" />
+            </Button>
+          </Link>
+        </div>
       </div>
-    </nav>
+    </div>
   )
 } 

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { FilterBar } from '@/components/discovery/filter-bar'
 import Link from 'next/link'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { 
   Menu, 
   Bell, 
@@ -22,8 +23,8 @@ export function TopNavbar({ onMenuClick, showFilters = false }: TopNavbarProps) 
   const [unreadNotifications] = useState(3) // Mock notification count
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-card-background/80 backdrop-blur-md border-b border-border-divider">
-      <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/30">
+      <div className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
           <div className="w-8 h-8 bg-primary-cta rounded-lg flex items-center justify-center">
@@ -60,7 +61,12 @@ export function TopNavbar({ onMenuClick, showFilters = false }: TopNavbarProps) 
         )}
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1">
+          {/* Theme Toggle - Desktop */}
+          <div className="hidden md:block">
+            <ThemeToggle variant="app" />
+          </div>
+          
           {/* Notifications */}
           <Button
             variant="ghost"

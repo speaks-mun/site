@@ -40,7 +40,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       />
 
       {/* Main Content */}
-      <main className="pt-16 pb-20">
+      <main className="pt-12 pb-24">
         {children}
       </main>
 
