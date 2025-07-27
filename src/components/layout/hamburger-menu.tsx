@@ -50,8 +50,8 @@ const menuItems = [
   },
   {
     icon: Mail,
-    label: 'Contact Us',
-    href: '/contact',
+    label: 'Support',
+    href: '/support',
   },
 ]
 
