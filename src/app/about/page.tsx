@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-foreground mb-6">Built by MUN Enthusiasts</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Our team consists of passionate MUN participants and organizers who understand the community's needs firsthand.
+            Our team consists of passionate MUN participants and organizers who understand the community&apos;s needs firsthand.
           </p>
           <Link href="/contact">
             <Button variant="outline" size="lg">

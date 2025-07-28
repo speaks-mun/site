@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MessageCircle, Phone, MapPin, Clock, Heart } from "lucide-react"
+import { Mail, MessageCircle, MapPin, Clock, Heart } from "lucide-react"
 
 export default function ContactPage() {
   return (
