@@ -45,7 +45,7 @@ export async function middleware(request: NextRequest) {
     '/profile',
     '/my-events',
     '/settings',
-    '/contact',
+    '/support',
     '/bookmarks'
   ]
 

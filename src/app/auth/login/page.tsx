@@ -17,14 +17,27 @@ export default function LoginPage() {
 
   const { execute: handleGoogleLogin, isLoading } = useApiAction(
     async () => {
+      // Get the current origin to ensure correct redirect URL
+      const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
+      
+      console.log('Initiating Google OAuth with redirect to:', `${origin}/auth/callback`)
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/auth/callback`
+          redirectTo: `${origin}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          }
         }
       })
       
-      if (error) throw error
+      if (error) {
+        console.error('OAuth initiation error:', error)
+        throw error
+      }
+      
       return true
     },
     {
@@ -91,14 +104,14 @@ export default function LoginPage() {
           {/* Google OAuth Button */}
           <Button
             onClick={() => {
-              console.log('Google login clicked'); // Debug log
+              console.log('Google login clicked');
               handleGoogleLogin({});
             }}
             disabled={isLoading}
             className="w-full bg-[#22D3EE] text-white hover:bg-[#22D3EE]/90 py-6 text-lg font-semibold flex items-center justify-center gap-3 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <FaGoogle className="w-5 h-5 flex-shrink-0" />
-            <span>{isLoading ? "Signing in..." : "Sign in with Google"}</span>
+            <span>{isLoading ? "Connecting to Google..." : "Sign in with Google"}</span>
           </Button>
 
           {/* Divider */}
