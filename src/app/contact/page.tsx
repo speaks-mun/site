@@ -13,7 +13,7 @@ export default function ContactPage() {
             Get in <span className="bg-gradient-to-r from-primary-cta to-blue-500 bg-clip-text text-transparent">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Have questions, suggestions, or want to partner with us? We'd love to hear from you.
+            Have questions, suggestions, or want to partner with us? We&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">Subject</label>
-                  <Input placeholder="What's this about?" />
+                  <Input placeholder="What&apos;s this about?" />
                 </div>
                 
                 <div>
@@ -67,7 +67,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-6">Contact Information</h2>
                 <p className="text-muted-foreground mb-8">
-                  We're here to help you make the most of your MUN experience. Reach out to us through any of these channels.
+                  We&apos;re here to help you make the most of your MUN experience. Reach out to us through any of these channels.
                 </p>
               </div>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email Us</h3>
                     <p className="text-muted-foreground">hello@speaks.mun</p>
-                    <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
+                                         <p className="text-sm text-muted-foreground">We&apos;ll respond within 24 hours</p>
                   </div>
                 </div>
 
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Our team consists of passionate MUN participants and organizers who understand your needs. 
-                  We're always happy to chat about MUN, technology, or how we can make the platform better.
+                  We&apos;re always happy to chat about MUN, technology, or how we can make the platform better.
                 </p>
               </div>
 

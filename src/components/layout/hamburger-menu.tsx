@@ -3,10 +3,8 @@
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useTheme } from 'next-themes'
 import { 
   X, 
   Compass, 
@@ -14,9 +12,7 @@ import {
   User, 
   Settings, 
   Mail, 
-  LogOut,
-  Sun,
-  Moon
+  LogOut
 } from 'lucide-react'
 import { logout } from '@/lib/auth-actions'
 import { useApiAction } from '@/hooks/use-api-action'
@@ -57,7 +53,6 @@ const menuItems = [
 
   export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
     const pathname = usePathname()
-    const { theme, setTheme } = useTheme()
 
   // Close menu on route change
   useEffect(() => {
@@ -86,9 +81,7 @@ const menuItems = [
     }
   )
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+
 
   if (!isOpen) return null
 

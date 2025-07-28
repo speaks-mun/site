@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { Filter, X, Check } from 'lucide-react'
+import { Filter, Check } from 'lucide-react'
 
 const MUN_TYPES = ['Conference', 'Workshop', 'Simulation']
 const COMMITTEES = ['UNSC', 'ECOSOC', 'WHO', 'UNICEF', 'UNHRC', 'DISEC', 'SPECPOL']

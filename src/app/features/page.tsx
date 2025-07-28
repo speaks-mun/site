@@ -181,7 +181,7 @@ export default function FeaturesPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-foreground mb-6">Coming Soon</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            We're constantly working on new features to enhance your MUN experience.
+            We&apos;re constantly working on new features to enhance your MUN experience.
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 mb-8">
