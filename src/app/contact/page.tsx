@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { UserStatusBanner } from "@/components/user-status-banner"
 import { Mail, MessageCircle, MapPin, Clock, Heart } from "lucide-react"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* User Status */}
+      <div className="p-6">
+        <UserStatusBanner variant="minimal" showOnPage="all" className="inline-flex" />
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">

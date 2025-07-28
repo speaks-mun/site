@@ -20,6 +20,7 @@ import { supabase } from '@/lib/supabase/client'
 import { useApiAction } from '@/hooks/use-api-action'
 import { User } from '@supabase/supabase-js'
 import Image from 'next/image'
+import { UserStatusBanner } from '@/components/user-status-banner'
 
 const onboardingSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -126,6 +127,9 @@ export default function OnboardingPage() {
             </div>
             <span className="text-heading-text text-2xl font-bold">Speaks</span>
           </div>
+
+          {/* Login Success Banner */}
+          <UserStatusBanner variant="success" className="mb-6" />
 
           <h2 className="text-3xl font-bold text-heading-text mb-4">
             Complete Your Profile

@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button"
+import { UserStatusBanner } from "@/components/user-status-banner"
 import Link from "next/link"
 import { Globe, Users, Calendar, Target, Heart, Star } from "lucide-react"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* User Status */}
+      <div className="p-6">
+        <UserStatusBanner variant="minimal" showOnPage="all" className="inline-flex" />
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">

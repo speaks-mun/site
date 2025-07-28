@@ -1,10 +1,14 @@
 import { EmptyState } from '@/components/empty-state'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { UserStatusBanner } from '@/components/user-status-banner'
 
 export default function MyEventsPage() {
   return (
     <div className="p-4 md:p-8">
+      {/* Welcome Banner */}
+      <UserStatusBanner variant="welcome" showOnPage="app" className="mb-6" />
+
       <div className="mb-6">
         <h1 className="text-2xl md:text-3xl font-bold text-heading-text mb-2">
           My Events

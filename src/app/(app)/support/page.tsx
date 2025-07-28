@@ -3,10 +3,14 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react'
+import { UserStatusBanner } from '@/components/user-status-banner'
 
 export default function SupportPage() {
   return (
     <div className="p-4 md:p-8 max-w-4xl mx-auto">
+      {/* Welcome Banner */}
+      <UserStatusBanner variant="welcome" showOnPage="app" className="mb-6" />
+
       <div className="mb-8 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-heading-text mb-4">
           Support & Help

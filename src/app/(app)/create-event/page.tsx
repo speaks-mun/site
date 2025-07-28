@@ -23,6 +23,7 @@ import { ArrowLeft, ArrowRight, MapIcon } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 import { useApiAction } from '@/hooks/use-api-action'
 import { User as SupabaseUser } from '@supabase/supabase-js'
+import { UserStatusBanner } from '@/components/user-status-banner'
 
 const eventSchema = z.object({
   name: z.string().min(5, 'Event name must be at least 5 characters').max(100),
@@ -209,6 +210,9 @@ export default function CreateEventPage() {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-2xl mx-auto">
+        {/* Welcome Banner */}
+        <UserStatusBanner variant="welcome" showOnPage="app" className="mb-6" />
+
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-heading-text mb-2">

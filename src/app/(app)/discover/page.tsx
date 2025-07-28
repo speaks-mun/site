@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { EventCard } from '@/components/event-card'
 import { supabase } from '@/lib/supabase/client'
 import { MapPin, List } from 'lucide-react'
+import { UserStatusBanner } from '@/components/user-status-banner'
 
 // Placeholder map component until Google Maps API is configured
 const MapPlaceholder = ({ events }: { events: Event[] }) => (
@@ -98,6 +99,11 @@ export default function DiscoverPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Welcome Banner */}
+      <div className="p-4 pb-0">
+        <UserStatusBanner variant="welcome" showOnPage="app" />
+      </div>
+
       {/* Map Section */}
       {showMap && (
         <div className="h-[40vh] md:h-[60vh] w-full relative">

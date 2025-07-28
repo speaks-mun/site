@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { UserStatusBanner } from "@/components/user-status-banner";
 import Link from "next/link";
 import { 
   Globe, 
@@ -67,6 +68,11 @@ export default function HomePage() {
           </Link>
         </div>
       </header>
+
+      {/* User Status Indicator */}
+      <div className="relative z-10 px-6 md:px-12 lg:px-16 -mt-2">
+        <UserStatusBanner variant="minimal" showOnPage="all" className="inline-flex" />
+      </div>
 
       {/* Hero Section */}
       <main className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-16 md:py-20 lg:py-24">
