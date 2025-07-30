@@ -87,12 +87,16 @@ function CondensedFilterBarContent() {
 
   // Debounced URL updates for text inputs
   useEffect(() => {
-    updateURL({ ...filters, tags: debouncedTags })
-  }, [debouncedTags, filters.munTypes, filters.committees, filters.location, filters.sortBy, updateURL])
+    if (debouncedTags !== filters.tags) {
+      updateURL({ ...filters, tags: debouncedTags })
+    }
+  }, [debouncedTags]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    updateURL({ ...filters, location: debouncedLocation })
-  }, [debouncedLocation, filters.munTypes, filters.committees, filters.tags, filters.sortBy, updateURL])
+    if (debouncedLocation !== filters.location) {
+      updateURL({ ...filters, location: debouncedLocation })
+    }
+  }, [debouncedLocation]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const updateFilter = (updates: Partial<FilterState>) => {
     const newFilters = { ...filters, ...updates }

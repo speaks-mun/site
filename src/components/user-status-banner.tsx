@@ -18,7 +18,11 @@ export function UserStatusBanner({
   className = "" 
 }: UserStatusBannerProps) {
   const [user, setUser] = useState<User | null>(null)
-  const [userData, setUserData] = useState<any>(null)
+  const [userData, setUserData] = useState<{
+    name?: string
+    college_affiliation?: string
+    onboarding_completed?: boolean
+  } | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

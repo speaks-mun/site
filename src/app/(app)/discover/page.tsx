@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect, useCallback, Suspense } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { EventCard } from '@/components/event-card'
 import { supabase } from '@/lib/supabase/client'
-import { MapPin, List, Filter } from 'lucide-react'
+import { MapPin, List } from 'lucide-react'
 import { UserStatusBanner } from '@/components/user-status-banner'
 import { CondensedFilterBar } from '@/components/discovery/condensed-filter-bar'
 
