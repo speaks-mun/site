@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { EventCard } from '@/components/event-card'
 import { supabase } from '@/lib/supabase/client'
-import { MapPin, List } from 'lucide-react'
+import { MapPin, List, Filter } from 'lucide-react'
 import { UserStatusBanner } from '@/components/user-status-banner'
+import { CondensedFilterBar } from '@/components/discovery/condensed-filter-bar'
 
 // Placeholder map component until Google Maps API is configured
 const MapPlaceholder = ({ events }: { events: Event[] }) => (
@@ -139,6 +140,11 @@ export default function DiscoverPage() {
           <p className="text-body-text">
             Find and register for Model United Nations conferences across South India
           </p>
+        </div>
+
+        {/* Condensed Filter Bar */}
+        <div className="mb-6">
+          <CondensedFilterBar />
         </div>
 
         {/* Events Grid */}
